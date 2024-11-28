@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Estilismo y Belleza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'logo.png' %}");
+            background-repeat: no-repeat;
+            background-size: 150px 150px; /* Tamaño ajustado de la imagen */
+            background-position: top left; /* Posición en la esquina superior izquierda */
+        }
+
+        /* Estilos del header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            margin-top: 100px;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        /* Estilos de la sección de servicios */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        .service-item {
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        }
+        .service-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .service-item h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin-top: 10px;
+        }
+        .service-item p {
+            color: #c0c0c0;
+            font-size: 1.2em;
+        }
+
+        /* Estilos del footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1c1c1c;
+            color: #c0c0c0;
+            width: 100%;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            .service-item h2 {
+                font-size: 1.8em;
+            }
+            .service-item p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 10px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .service-item {
+                padding: 15px;
+            }
+            .service-item h2 {
+                font-size: 1.5em;
+            }
+            .service-item p {
+                font-size: 0.9em;
+            }
+            footer {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Ajustes de perfil para centrar */
+        .perfil {
+            display: grid;
+            grid-template-columns: 1fr; /* Una columna centrada */
+            padding: 50px;
+            max-width: 600px; /* Reducir el ancho para centrar mejor */
+            margin: 0 auto; /* Centrar la sección en la página */
+            text-align: center;
+        }
+
+        .perfil_agueda {
+            text-align: center;
+        }
+        .perfil_agueda img {
+            width: 200px; /* Ajusta el ancho de la imagen */
+            height: 200px; /* Ajusta la altura de la imagen */
+            object-fit: cover; /* Mantiene la imagen centrada y recortada */
+            border-radius: 50%; /* Hace que la imagen sea circular */
+            margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+        }
+        .perfil_agueda h2{
+            color: #ff8c00;
+        }
+
+    </style>
+</head>
+<body>
+    {% load static %}
+    {% include "menu.html" %}
+
+    <header>
+        <h1>LASH STUDIO, SALON Y SPA</h1>
+        <p>Te ofrecemos la asesoria necesaria para brindarle a tu imagen un nuevo glow.</p>
+    </header>
+    <section class="perfil">
+        <div class="perfil_agueda">
+            <img src="{% static 'certificado.jpg' %}" alt="" class="service-image">
+            <h2>VANESSA SIRIA</h2>
+            <p>¡Bienvenidos a Vanessa Siria, lash studio, salón y spa, somos un espacio altamente capacitado en 
+                Transforma tu look y hacerte brillar con nuestros servicios de colorimetria, estilismo y tratamientos de belleza personalizados.
+                Ofrecemos cortes de tendencia, pestañas pelo a pelo y grupales, limpieza facial y mucho más, todo pensado para resaltar lo mejor de ti.
+                Reserva hoy y vive una experiencia de belleza que te encantará. ¡Te esperamos para hacerte lucir espectacular!
+            </p>
+        </div>
+    </section>
+    <section class="services">
+        <div class="service-item">
+            <img src="{% static 'Cortes y Estilismo.jpg' %}" alt="Corte y Estilismo" class="service-image">
+            <h2>Cortes y Estilismo</h2>
+            <p>
+                - Transforma tu Look ✂️<br>
+                - Asesoría Profesional 💁<br>
+                - Textura y Volumen Perfectos 🔥<br>
+                - Ambiente Relajante y Profesional 🌸<br>
+            </p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'Tratamientos Faciales.jpg' %}" alt="Tratamiento Facial" class="service-image">
+            <h2>Tratamientos Faciales</h2>
+            <p>
+                - Cabello Fuerte y Brillante 🌞<br>
+                - Hidratación Intensa 💧<br>
+                - Desintoxicación Pura 🧖 <br>
+                - Piel Suave y Sedosa 🌹 <br>
+            </p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'Coloración y Reflejos.jpg' %}" alt="Coloración y Reflejos" class="service-image">
+            <h2>Coloración</h2>
+            <p style="line-height:  1.5;">
+                - Color Personalizado para Ti 🎨 <br>
+                - Cuidado Capilar Especializado 💆 <br>
+                - Renueva tu Estilo 🌟 <br>
+                - Cabello Fuerte y Brillante 🌞 <br>
+            </p>
+        </div>
+    </section>
+    
+    <section class="services">
+        <div class="service-item">
+            <img src="{% static 'Cortes y Estilismo.jpg' %}" alt="Corte y Estilismo" class="service-image">
+            <h2>Pestañas</h2>
+            <p style="line-height: 1.5;">
+                - ¡Ahorra tiempo cada mañana! ✨ <br>
+                - Dura semanas 🗓️ <br>
+                - Pestañas con forma y volumen perfectos 🖤 <br>
+                - Comodidad y ligereza 🌸 <br>
+            </p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'Tratamientos Faciales.jpg' %}" alt="Tratamiento Facial" class="service-image">
+            <h2>Manicure</h2>
+            <p style="line-height: 1.5;">
+                - Hidratación profunda para una piel suave 🌸<br>
+                - Fortalece tus uñas 💪 <br>
+                - Amplia variedad de colores 🎨 <br>
+                - Eliminación profesional de cutículas ✂️ <br>
+            </p>
+        </div>
+        <div class="service-item">
+            <img src="{% static 'Coloración y Reflejos.jpg' %}" alt="Coloración y Reflejos" class="service-image">
+            <h2>Alisados</h2>
+            <p style="line-height: 1.5;">
+                - Olvídate del frizz 🌧️ <br>
+                - Cabello liso y brillante 🌟 <br>
+                - Resultados que duran de 3 a 6 meses 🗓️ <br>
+                - Adaptable a cualquier tipo de cabello 💇‍♀️ <br>
+            </p>
+            <p>
+                estoy capacitada para brindarte la sesoria segun tu tipo de cabello
+            </p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Estilo y Belleza. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

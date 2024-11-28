@@ -1,0 +1,57 @@
+<html>
+    <style>
+        /* Estilo para el menú */
+        #menu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-transform: uppercase;
+            background: #141414;
+            height: 60px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Elementos del menú */
+        #menu li {
+            display: inline-block;
+            margin: 0 15px;
+            color: white;
+            text-align: center;
+        }
+
+        /* Estilo para los enlaces */
+        #menu li a {
+            text-decoration: none;
+            display: block;
+            padding: 14px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efecto con transición */
+        #menu li a:hover {
+            background: #ef8364;
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(239, 131, 100, 0.4);
+        }
+    </style>
+
+    <ul id="menu">
+        <li><a href="{% url 'home' %}">inicio</a></li>
+        <li><a href="{% url 'cita' %}">agendar cita</a></li>
+        <li><a href="{% url 'portafolio' %}">portafolio</a></li>
+        <li><a href="{% url 'contactos' %}">contactos</a></li>
+    </ul>
+
+</html>

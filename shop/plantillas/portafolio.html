@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    {% load static %}
+    <style>
+        body {
+            background-color: #141414;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background-image: url("{% static 'logo.png' %}");
+            background-repeat: no-repeat;
+            background-size: 150px 150px; /* Tamaño ajustado de la imagen */
+            background-position: top left; /* Posición en la esquina superior izquierda */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .portfolio-item {
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 250px; /* Aumenta el ancho para más espacio */
+            text-align: center;
+            background-color: #222; /* Fondo más claro para los elementos del portafolio */
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+        }
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        .description {
+            padding: 10px;
+            font-size: 1em;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    {% include "menu.html" %}
+    <h1>Portafolio</h1>
+    <div class="container">
+        <div class="portfolio-item">
+            <img src="{% static 'pelo.jpg' %}" alt="Descripción de la imagen 1">
+            <div class="description">Descripción de la imagen 1</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'pelo2.jpg' %}" alt="Descripción de la imagen 2">
+            <div class="description">Descripción de la imagen 2</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'pelo3.jpg' %}" alt="Descripción de la imagen 3">
+            <div class="description">Descripción de la imagen 3</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'persona.jpg' %}" alt="Descripción de la imagen 4">
+            <div class="description">Descripción de la imagen 4</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="portfolio-item">
+            <img src="{% static 'pelo4.jpg' %}" alt="">
+            <div class="description">descripcion de la imagen</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'pelo5.jpg' %}" alt="">
+            <div class="description">descripcion de la imagen</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'pelo6.jpg' %}" alt="">
+            <div class="description">descripcion de la imagen</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="{% static 'pestañas.jpg' %}" alt="">
+            <div class="description">descripcion de la imagen</div>
+        </div>
+    </div>
+    <div class="container">
+        {% for item in items %}
+            <div class="portfolio-item">
+                <img src="{{ item.imagen.url }}" alt="{{ item.titulo }}">
+                <div class="description">{{ item.descripcion }}</div>
+            </div>
+            {% endfor %}
+    </div>
+</body>
+</html>

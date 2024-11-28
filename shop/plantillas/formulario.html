@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Formulario</title>
+    <style>
+        /* Estilo del cuerpo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #141414; /* Fondo oscuro */
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: url("{% static 'logo.png' %}");
+            background-repeat: no-repeat;
+            background-size: 150px 150px; /* Tamaño ajustado de la imagen */
+            background-position: top left; /* Posición en la esquina superior izquierda */
+        }
+
+        /* Estilo del título */
+        h1 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        /* Contenedor del formulario */
+        .form-container {
+            background-color: #1f1f1f; /* Fondo oscuro para el formulario */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilos de los campos del formulario */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            background-color: #2c2c2c; /* Fondo oscuro para los campos */
+            color: #f0f0f0; /* Texto claro */
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Efecto en campos al hacer foco */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        /* Botón de envío */
+        button[type="submit"] {
+            background-color: #4a90e2;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #357ABD;
+        }
+
+        /* Texto descriptivo */
+        .description {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% include "menu.html" %}
+    <h1>Haz tu cita</h1>
+    <div class="form-container">
+        <p class="description">Por favor completa los siguientes campos para agendar tu cita.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear Cita</button>
+        </form>
+    </div>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+        </div>
+</body>
+</html>

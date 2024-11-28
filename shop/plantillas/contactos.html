@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <style>
+        body {
+            background-color: #141414;
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'logo.png' %}");
+            background-repeat: no-repeat;
+            background-size: 150px 150px;
+            background-position: top left;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+        }
+
+        #formulario {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 50px;
+            gap: 30px;  /* Espaciado entre los íconos */
+        }
+
+        #formulario li {
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 70px;
+            height: 70px;
+        }
+
+        #formulario li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #formulario li a:hover {
+            transform: scale(1.1); /* Aumentar tamaño al pasar el ratón */
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Estilos para los íconos de las redes sociales */
+        #face img, #ins img, #whatsp img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        #face img:hover, #ins img:hover, #whatsp img:hover {
+            transform: scale(1.1); /* Efecto al pasar el ratón sobre los íconos */
+        }
+
+        /* Facebook */
+        #face {
+            background-color: #1877F2; /* Color azul tradicional de Facebook */
+            border: 2px solid #ffffff; /* Añadir borde blanco para que resalten sobre el fondo oscuro */
+        }
+        #face:hover {
+            background-color: #1353a7; /* Oscuro al pasar el ratón */
+        }
+
+        /* Instagram */
+        #ins {
+            background: linear-gradient(45deg, #F58529, #DD2A7B, #8134B8, #BC2A8D);
+            border: 2px solid #ffffff; /* Añadir borde blanco */
+        }
+        #ins:hover {
+            background: linear-gradient(45deg, #af5e1c, #88194b, #64288f, #791c5b);
+        }
+
+        /* WhatsApp */
+        #whatsp {
+            background-color: #25D366; /* Verde tradicional de WhatsApp */
+            border: 2px solid #ffffff; /* Añadir borde blanco */
+        }
+        #whatsp:hover {
+            background-color: #128C7E; /* Oscuro al pasar el ratón */
+        }
+
+    </style>
+</head>
+<body>
+    {% include "menu.html" %}
+    <h1>Redes Sociales</h1>
+    <ul id="formulario">
+        <li><a href="https://www.facebook.com" id="face"><img src="{% static 'face.png' %}" alt="Facebook"></a></li>
+        <li><a href="https://www.instagram.com/vanesiriam" id="ins"><img src="{% static 'ins.png' %}" alt="Instagram"></a></li>
+        <li><a href="https://wa.me/78767751?text=hola" id="whatsp"><img src="{% static 'whatspp.png' %}" alt="WhatsApp"></a></li>
+    </ul>
+</body>
+</html>
